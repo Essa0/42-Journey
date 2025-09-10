@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 void ft_putchar_fd(char c, int fd)
 {
@@ -58,7 +59,7 @@ void ft_putstr_fd(char *s, int fd)
     }
 }
 
-int ft_numlen(unsigned long n, int base)
+int ft_numlen_base(unsigned long n, int base)
 {
     int len;
 
@@ -70,6 +71,20 @@ int ft_numlen(unsigned long n, int base)
     }
     return (len);
 }
+int	ft_numlen(int n)
+{
+	int	len;
+
+	len = 0;
+	if (n <= 0)
+		len = 1;
+	while (n)
+	{
+		n /= 10;
+		len++;
+	}
+	return (len);
+}
 
 char *itoa_base(unsigned long n, char *base)
 {
@@ -79,7 +94,7 @@ char *itoa_base(unsigned long n, char *base)
     int index;
 
     len_base = strlen(base);
-    digit_len = ft_numlen(n, len_base);
+    digit_len = ft_numlen_base(n, len_base);
     index = digit_len - 1;
     str = malloc(digit_len + 1);
     if (n == 0)
@@ -125,43 +140,52 @@ int print(const char *n, ...)
             int num = va_arg(args, int);
             ft_putnbr_fd(num, 1);
             i+=2;
+            count += ft_numlen(num);
         }
         else if (n[i] == '%' && n[i + 1] == 'i')
         {
             int num = va_arg(args, int);
             ft_putnbr_fd(num, 1);
             i += 2;
+            count += ft_numlen(num);
         }
         else if (n[i] == '%' && n[i + 1] == 'c')
         {
             char c = va_arg(args, int);
             ft_putchar_fd(c, 1);
             i+=2;
-        }
-        else if (n[i] == '%' && n[i + 1] == 'p')
-        {
-            void *p = va_arg(args, void *);
-            if (p == NULL)
-                write(1, "0x0", 3);
-            else{
-                char *hex = itoa_base((unsigned long)p, "0123456789abcdef");
-                write(1, "0x", 2);
-                ft_putstr_fd(hex, 1);
-                free(hex);
-            }
-            i+=2;
+            count += 1;
         }
         else if (n[i] == '%' && n[i + 1] == 'u')
         {
             unsigned int u = va_arg(args, unsigned int);
             ft_putnbr_unsigned_fd(u, 1);
+            count += ft_numlen_base(u, 10);
             i += 2;
+        }
+        else if (n[i] == '%' && n[i + 1] == 'p')
+        {
+            void *p = va_arg(args, void *);
+            if (p == NULL)
+            {
+                write(1, "0x0", 3);
+                count += 3;
+            }
+            else{
+                char *hex = itoa_base((uintptr_t)p, "0123456789abcdef");
+                write(1, "0x", 2);
+                ft_putstr_fd(hex, 1);
+                count += strlen(hex) + 2;
+                free(hex);
+            }
+            i+=2;
         }
         else if (n[i] == '%' && n[i + 1] == 'x')
         {
             unsigned int x = va_arg(args, unsigned int);
             char *hex = itoa_base(x, "0123456789abcdef");
             ft_putstr_fd(hex, 1);
+            count += strlen(hex);
             free(hex);
             i += 2;
         }
@@ -170,21 +194,26 @@ int print(const char *n, ...)
             unsigned int x = va_arg(args, unsigned int);
             char *hex = itoa_base(x, "0123456789ABCDEF");
             ft_putstr_fd(hex, 1);
+            count += strlen(hex);
             free(hex);
             i += 2;
         }
         else
         {
             write(1, &n[i], 1);
+            count++;
             i++;
         }
     }
     va_end(args);
+    return (count);
 }
 int main ()
 {
-    int n = 42;
-    int *ptr = &n;
-    print("hello issa u'r family name is: %s\nand u'r age is: %d\nand the first letter of ur name is: %c\nand the pointer is: %p\nand %%\nand unsigned %u\nand xx %x\nand XX %X", "abe", 102, 'i', ptr, -10, 255, 255);
+    // int n = 42;
+    // int *ptr = &n;
+    // print("hello issa u'r family name is: %s\nand u'r age is: %d\nand the first letter of ur name is: %c\nand the pointer is: %p\nand %%\nand unsigned %u\nand xx %x\nand XX %X", "abe", 102, 'i', ptr, -10, 255, 255);
     // printf("%u\n", -40);
+    int len = print("Hello %s, num=%d, hex=%x\n", "world", 42, 255);
+    print("length printed %d\n", len);
 }
