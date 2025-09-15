@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_hex_upper_lower.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 17:30:56 by issa              #+#    #+#             */
-/*   Updated: 2025/09/15 13:33:22 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/09/13 17:12:14 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/09/15 13:44:22 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printf(const char *n, ...)
+int	print_hex_upper_lower(const char *format, int *i, va_list args)
 {
-	va_list	args;
-	int		i;
-	int		count;
+	unsigned int	x;
+	char			*hex;
+	int				count;
 
-	va_start(args, n);
-	i = 0;
 	count = 0;
-	while (n[i])
-	{
-		if (n[i] == '%')
-		{
-			count += handle_specifiers(n, &i, args);
-		}
-		else
-		{
-			write(1, &n[i], 1);
-			count++;
-			i++;
-		}
-	}
-	va_end(args);
+	x = va_arg(args, unsigned int);
+	if (format[*i + 1] == 'x')
+		hex = itoa_base(x, "0123456789abcdef");
+	else
+		hex = itoa_base(x, "0123456789ABCDEF");
+	ft_putstr_fd(hex, 1);
+	count = strlen(hex);
+	free(hex);
+	*i += 2;
 	return (count);
 }

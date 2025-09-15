@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   putnbr_unsigned_fd.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 17:30:56 by issa              #+#    #+#             */
-/*   Updated: 2025/09/15 13:33:22 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/09/13 17:24:17 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/09/15 13:38:49 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printf(const char *n, ...)
+void	putnbr_unsigned_fd(unsigned int n, int fd)
 {
-	va_list	args;
-	int		i;
-	int		count;
-
-	va_start(args, n);
-	i = 0;
-	count = 0;
-	while (n[i])
+	if (n >= 10)
 	{
-		if (n[i] == '%')
-		{
-			count += handle_specifiers(n, &i, args);
-		}
-		else
-		{
-			write(1, &n[i], 1);
-			count++;
-			i++;
-		}
+		putnbr_unsigned_fd(n / 10, fd);
+		putnbr_unsigned_fd(n % 10, fd);
 	}
-	va_end(args);
-	return (count);
+	else
+		ft_putchar_fd(n + '0', fd);
 }

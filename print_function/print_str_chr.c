@@ -1,39 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_str_chr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 17:30:56 by issa              #+#    #+#             */
-/*   Updated: 2025/09/15 13:33:22 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/09/13 17:15:18 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/09/15 13:45:10 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printf(const char *n, ...)
+int	print_str_chr(const char *format, int *i, va_list args)
 {
-	va_list	args;
-	int		i;
+	char	c;
+	char	*s;
 	int		count;
 
-	va_start(args, n);
-	i = 0;
 	count = 0;
-	while (n[i])
+	if (format[*i + 1] == 'c')
 	{
-		if (n[i] == '%')
-		{
-			count += handle_specifiers(n, &i, args);
-		}
-		else
-		{
-			write(1, &n[i], 1);
-			count++;
-			i++;
-		}
+		c = (char)va_arg(args, int);
+		ft_putchar_fd(c, 1);
+		count += 1;
 	}
-	va_end(args);
+	else if (format[*i + 1] == 's')
+	{
+		s = va_arg(args, char *);
+		if (!s)
+			s = "(null)";
+		ft_putstr_fd(s, 1);
+		count += ft_strlen(s);
+	}
+	*i += 2;
 	return (count);
 }

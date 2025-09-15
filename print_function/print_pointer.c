@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_pointer.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 17:30:56 by issa              #+#    #+#             */
-/*   Updated: 2025/09/15 13:33:22 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/09/13 17:13:23 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/09/15 13:46:24 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printf(const char *n, ...)
+int	print_pointer(int *i, va_list args)
 {
-	va_list	args;
-	int		i;
+	void	*p;
+	char	*hex;
 	int		count;
 
-	va_start(args, n);
-	i = 0;
 	count = 0;
-	while (n[i])
+	p = va_arg(args, void *);
+	if (!p)
 	{
-		if (n[i] == '%')
-		{
-			count += handle_specifiers(n, &i, args);
-		}
-		else
-		{
-			write(1, &n[i], 1);
-			count++;
-			i++;
-		}
+		write(1, "(nil)", 5);
+		*i += 2;
+		return (5);
 	}
-	va_end(args);
+	hex = itoa_base((uintptr_t)p, "0123456789abcdef");
+	write(1, "0x", 2);
+	ft_putstr_fd(hex, 1);
+	count += ft_strlen(hex) + 2;
+	free(hex);
+	*i += 2;
 	return (count);
 }

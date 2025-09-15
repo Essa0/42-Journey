@@ -1,39 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   print_unsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/07 17:30:56 by issa              #+#    #+#             */
-/*   Updated: 2025/09/15 13:33:22 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/09/13 17:18:10 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/09/15 13:46:48 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_printf(const char *n, ...)
+int	print_unsigned(int *i, va_list args)
 {
-	va_list	args;
-	int		i;
-	int		count;
+	unsigned int	u;
+	int				count;
 
-	va_start(args, n);
-	i = 0;
 	count = 0;
-	while (n[i])
-	{
-		if (n[i] == '%')
-		{
-			count += handle_specifiers(n, &i, args);
-		}
-		else
-		{
-			write(1, &n[i], 1);
-			count++;
-			i++;
-		}
-	}
-	va_end(args);
+	u = va_arg(args, unsigned int);
+	putnbr_unsigned_fd(u, 1);
+	count += numlen_base(u, 10);
+	*i += 2;
 	return (count);
 }
