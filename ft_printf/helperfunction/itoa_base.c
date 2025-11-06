@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   itoa_base.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/13 17:19:38 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/09/15 13:39:54 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/11/06 14:43:04 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*itoa_base(unsigned long n, char *base)
 	int		digit_len;
 	int		index;
 
-	len_base = strlen(base);
+	len_base = ft_strlen(base);
 	digit_len = numlen_base(n, len_base);
 	index = digit_len - 1;
 	str = malloc(digit_len + 1);
