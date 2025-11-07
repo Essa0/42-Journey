@@ -1,27 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 01:17:55 by iabiesat          #+#    #+#             */
-/*   Updated: 2025/11/06 14:53:41 by iabiesat         ###   ########.fr       */
+/*   Created: 2025/08/05 00:01:22 by iabiesat         #+#    #+#             */
+/*   Updated: 2025/09/02 19:04:30 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_isascii(int c)
 {
-	int	i;
-
-	i = 0;
-	if (s == NULL)
-		return ;
-	while (s[i] != '\0')
+	if (c >= 0 && c < 128)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		return (1);
 	}
+	return (0);
 }
+// int main(){
+//     printf("%d\n", ft_isascii('Š'));
+//     return (0);
+// }

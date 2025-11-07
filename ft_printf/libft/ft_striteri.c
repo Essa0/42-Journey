@@ -1,39 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/21 01:22:40 by iabiesat         #+#    #+#             */
-/*   Updated: 2025/09/02 19:07:37 by iabiesat         ###   ########.fr       */
+/*   Created: 2025/08/20 02:17:25 by iabiesat         #+#    #+#             */
+/*   Updated: 2025/09/02 19:08:53 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	if (n == -2147483648)
+	int	i;
+
+	i = 0;
+	if (!s || !f)
 	{
-		write(fd, "-2147483648", 11);
+		return ;
 	}
-	else if (n < 0)
+	while (s[i])
 	{
-		write(fd, "-", 1);
-		n *= -1;
-		ft_putnbr_fd(n, fd);
-	}
-	else
-	{
-		if (n > 9)
-		{
-			ft_putnbr_fd(n / 10, fd);
-			ft_putnbr_fd(n % 10, fd);
-		}
-		else
-		{
-			ft_putchar_fd(n + '0', fd);
-		}
+		f(i, &s[i]);
+		i++;
 	}
 }
