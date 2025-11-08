@@ -2,24 +2,18 @@ NAME = libftprintf.a
 
 LIBFT = libft/libft.a
 
-PRINT_DIR = print_function
-
-HELPER_DIR = helperfunction
-
-PRINTF_DIR = ft_printf
-
 OBJ_DIR = obj_file
 
-SRC = $(PRINTF_DIR)/ft_printf.c \
-$(HELPER_DIR)/putnbr_unsigned_fd.c \
-$(HELPER_DIR)/handle_specifier.c \
-$(HELPER_DIR)/numlen_base.c \
-$(HELPER_DIR)/itoa_base.c \
-$(PRINT_DIR)/print_hex_upper_lower.c \
-$(PRINT_DIR)/print_int_sign.c \
-$(PRINT_DIR)/print_pointer.c \
-$(PRINT_DIR)/print_str_chr.c \
-$(PRINT_DIR)/print_unsigned.c
+SRC = ft_printf.c \
+putnbr_unsigned_fd.c \
+handle_specifier.c \
+numlen_base.c \
+itoa_base.c \
+print_hex_upper_lower.c \
+print_int_sign.c \
+print_pointer.c \
+print_str_chr.c \
+print_unsigned.c
 
 CC = cc
 
