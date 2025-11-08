@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:47:43 by iabiesat          #+#    #+#             */
-/*   Updated: 2025/11/05 13:48:51 by iabiesat         ###   ########.fr       */
+/*   Updated: 2025/11/07 23:36:54 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ static char	*read_file(int fd, char *leftover)
 			break ;
 		buffer[n] = '\0';
 		leftover = join_buffer(leftover, buffer);
-		if (ft_strchr(leftover, '\n'))
+		if (!leftover || ft_strchr(leftover, '\n'))
 			break ;
 	}
 	free(buffer);
