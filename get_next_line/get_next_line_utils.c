@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 18:48:33 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/11/07 22:54:23 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/11/08 14:53:07 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
