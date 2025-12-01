@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 13:47:43 by iabiesat          #+#    #+#             */
-/*   Updated: 2025/11/08 14:55:18 by iabiesat         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:41:19 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,17 @@ static char	*extract_line(char *buffer)
 static char	*update_leftover(char *leftover)
 {
 	char	*str;
-	char	*newlf;
+	char	*newleftover;
 
 	if (!leftover)
 		return (NULL);
-	newlf = ft_strchr(leftover, '\n');
-	if (!newlf)
+	newleftover = ft_strchr(leftover, '\n');
+	if (!newleftover)
 	{
 		free(leftover);
 		return (NULL);
 	}
-	str = ft_strdup(newlf + 1);
+	str = ft_strdup(newleftover + 1);
 	free(leftover);
 	if (!str || str[0] == '\0')
 	{
