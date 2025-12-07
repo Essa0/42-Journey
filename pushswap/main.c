@@ -1,19 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split.c                                         :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/19 15:36:55 by iabiesat         #+#    #+#             */
-/*   Updated: 2025/09/02 13:35:14 by iabiesat         ###   ########.fr       */
+/*   Created: 2025/12/01 17:48:48 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/12/01 23:55:31 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <ctype.h>
+#include <unistd.h>
 #include <stdio.h>
+#include <stdlib.h>
+# include <string.h>
 
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+size_t	ft_strlcpy(char *dest, const char *src, size_t c)
+{
+	size_t	i;
+
+	i = 0;
+	if (c == 0)
+		return (ft_strlen(src));
+	while (src[i] && (i < (c - 1)))
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (ft_strlen(src));
+}
 static int	ft_count_words(char const *s, char c)
 {
 	int	i;
@@ -29,7 +54,6 @@ static int	ft_count_words(char const *s, char c)
 	}
 	return (word);
 }
-
 static int	ft_word_len(char const *s, char c)
 {
 	int	len;
@@ -41,7 +65,6 @@ static int	ft_word_len(char const *s, char c)
 	}
 	return (len);
 }
-
 static void	ft_free_split(char **arr, int j)
 {
 	while (j >= 0)
@@ -51,7 +74,6 @@ static void	ft_free_split(char **arr, int j)
 	}
 	free(arr);
 }
-
 static int	ft_fill_word(char **arr, char const *s, char c)
 {
 	int	len;
@@ -80,7 +102,6 @@ static int	ft_fill_word(char **arr, char const *s, char c)
 	arr[j] = NULL;
 	return (1);
 }
-
 char	**ft_split(char const *s, char c)
 {
 	char		**arr;
@@ -94,14 +115,73 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	return (arr);
 }
+int	ft_isdigit(int c)
+{
+	if (c >= 48 && c <= 57)
+	{
+		return (1);
+	}
+	return (0);
+}
+int	isValidNum(char *num)
+{
+	int i;
 
-// int main(){
-// 	char str[] = "isssa,,,, saleh,, abiesat";
-// 	int i=0;
-// 	while (i < ft_count_words(str, ','))
-// 	{
-// 		printf("%s", ft_split(str, ',')[i]);
-// 		i++;
-// 	}
-// }
- 
+	i = 0;
+	if (num[i] == '-' || num[i] == '+')
+		i++;
+	if (num[i] == '\0')
+		return (0);
+	while (num[i])
+	{
+		if (!ft_isdigit((unsigned char)num[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+int	validateInput(int argc, char **argv)
+{
+	int i;
+	int j;
+	char **part;
+
+	i = 1;
+	while (i < argc)
+	{
+		part = ft_split(argv[i], ' ');
+		if (!part)
+		{
+			free(part);
+			return (0);
+		}
+		j = 0;
+		while (part[j])
+		{
+			if (!isValidNum(part[j]))
+			{
+				ft_free_split(part, j);
+				return (0);
+			}
+			j++;
+		}
+		ft_free_split(part, j);
+		i++;
+	}
+	return (1);
+}
+int	main(int argc, char **argv)
+{
+	if (argc > 1)
+	{
+		if (!validateInput(argc, argv))
+		{
+			write(1, "Error\n", 6);
+		}
+		else
+		{
+			write(1, "lets play\n", 10);
+		}
+	}
+	return (0);
+}
