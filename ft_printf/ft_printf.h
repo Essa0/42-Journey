@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/14 23:51:25 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/11/08 12:36:35 by iabiesat         ###   ########.fr       */
+/*   Updated: 2025/12/08 00:39:19 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <stdint.h>
+# include <stdarg.h>
 # include "libft/libft.h"
 
 int			ft_printf(const char *n, ...);

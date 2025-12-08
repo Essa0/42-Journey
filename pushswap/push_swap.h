@@ -1,36 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 17:48:48 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/08 23:05:19 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/12/07 23:56:48 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/12/08 00:26:02 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
 
-int	main(int argc, char **argv)
-{
-	if (argc > 1)
-	{
-		int i;
-		char **part = split_and_store(argc, argv);
-		i = 0;
-		while (part[i])
-		{
-			printf("part[%d] = '%s'\n", i, part[i]);
-			i++;
-		}
-		i = 0;
-		while (part[i])
-		{
-			free(part[i]);
-			i++;
-		}
-		free(part);
-	}
-	return (0);
-}
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+# include "libft/libft.h"
+
+int     validateInput(char *arg);
+char    **split_and_store(int argc, char **argv);
+
+#endif
