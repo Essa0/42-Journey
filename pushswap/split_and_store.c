@@ -6,40 +6,11 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 00:12:54 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/08 22:44:20 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/10 16:34:30 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static void	ft_free_split(char **arr)
-{
-	int	i;
-
-	if (!arr)
-		return ;
-	i = 0;
-	while (arr[i])
-	{
-		free(arr[i]);
-		i++;
-	}
-	free(arr);
-}
-
-static char	**free_res(char **result, int i)
-{
-	int	j;
-
-	j = 0;
-	while (j < i)
-	{
-		free(result[j]);
-		j++;
-	}
-	free(result);
-	return (NULL);
-}
 
 static int count_word(int argc, char **argv)
 {
@@ -64,7 +35,7 @@ static int count_word(int argc, char **argv)
 			count++;
 			n++;	
 		}
-		ft_free_split(result);
+		free_full_arr(result);
 		i++;		
 	}
 	return (count);
@@ -83,13 +54,13 @@ static int arg_fill(char **result, char *argv, int k)
 		result[k] = ft_strdup(part[i]);
 		if (!result[k])
 		{
-			ft_free_split(part);
+			free_full_arr(part);
 			return(-1);
 		}
 		i++;
 		k++;
 	}
-	ft_free_split(part);
+	free_full_arr(part);
 	return (k);
 }
 
@@ -113,7 +84,7 @@ char **split_and_store(int argc, char **argv)
 		temp_k = k;
 		k = arg_fill(result, argv[i], k);
 		if (k < 0)
-			return(free_res(result, temp_k));
+			return(free_partial_arr(result, temp_k));
 		i++;
 	}
 	result[k] = NULL;

@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 23:56:04 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/08 00:10:17 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/15 16:42:38 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,32 +30,39 @@ static int	isValidNum(char *num)
 	return (1);
 }
 
-
-
-int validateInput(int argc, char **argv)
+static int is_whitespace(char *arg)
 {
 	int i;
-	int j;
-	char **part;
 
-	i = 1;
-	while (i < argc)
+	if (!arg || !arg[0])
+		return (1);
+
+	i = 0;
+	while (arg[i])
 	{
-		part = ft_split(argv[i], ' ');
-		if (!part)
+		if (arg[i] != ' ' && arg[i] != '\t' && arg[i] != '\n')
 			return (0);
-		j = 0;
-		while (part[j])
-		{
-			if (!isValidNum(part[j]))
-			{
-				ft_free_split(part, j);
-				return (0);
-			}
-			j++;
-		}
-		ft_free_split(part, j - 1);
 		i++;
 	}
 	return (1);
 }
+
+
+int validateInput(char **arg)
+{
+	int i;
+
+	i = 0;
+	while (arg[i])
+	{
+		if (is_whitespace(arg[i]))
+			return (0);
+
+		if (!isValidNum(arg[i]))
+			return (0);
+
+		i++;
+	}
+	return (1);
+}
+
