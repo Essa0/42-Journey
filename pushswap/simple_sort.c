@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 16:21:22 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/15 15:49:55 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/20 01:54:52 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ static void move_top(t_node **stack_a, t_node **stack_b, int pos)
 {
 	int size;
 	t_node *cur;
-	
+
 	size = 0;
 	cur = *stack_a;
 	while (cur)
@@ -110,7 +110,7 @@ void simple_sort(t_node **stack_a, t_node **stack_b)
 {
 	int size;
 	t_node *cur;
-	
+
 	size = 0;
 	cur = *stack_a;
 	if (is_sorted(*stack_a))

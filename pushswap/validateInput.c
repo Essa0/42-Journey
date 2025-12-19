@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/07 23:56:04 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/15 16:42:38 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/20 01:55:36 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,3 @@ int validateInput(char **arg)
 	}
 	return (1);
 }
-

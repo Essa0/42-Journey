@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 00:02:41 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/15 02:49:20 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/20 01:53:46 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void push_node(t_node **dest, t_node **src)
 {
 	t_node *new_dest;
-	
+
 	if (!*src)
 		return ;
 	new_dest = *src;

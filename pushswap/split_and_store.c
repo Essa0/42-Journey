@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 00:12:54 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/10 16:34:30 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/20 01:55:23 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int arg_fill(char **result, char *argv, int k)
 {
 	int		i;
 	char	**part;
-	
+
 	i = 0;
 	part = ft_split(argv, ' ');
 	if (!part)

@@ -6,21 +6,21 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 17:48:48 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/15 17:55:13 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/19 23:38:31 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void print_stack(t_node *node)
-{
-	while (node)
-	{
-		printf("%d ", node->val);
-		node = node->next;
-	}
-	printf("\n");
-}
+// static void print_stack(t_node *node)
+// {
+// 	while (node)
+// 	{
+// 		printf("%d ", node->val);
+// 		node = node->next;
+// 	}
+// 	printf("\n");
+// }
 
 int	main(int argc, char **argv)
 {
@@ -44,9 +44,9 @@ int	main(int argc, char **argv)
 			write(1, "Error in split\n", 6);
 			return (1);
 		}
-		
+
 		numbers = convert_to_integer(part, &count);
-		
+
 		if (!numbers)
 		{
 			printf("Error Numbers\n");
@@ -60,25 +60,25 @@ int	main(int argc, char **argv)
 			free_full_arr(part);
 			return (1);
 		}
-		
+
 		stack_a = init_stack(numbers, count);
 		stack_b = NULL;
-		
-		printf("before sort\n");
-		print_stack(stack_a);
-		printf("\n");
+
+		// printf("before sort\n");
+		// print_stack(stack_a);
+		// printf("\n");
 
 		simple_sort(&stack_a, &stack_b);
 
-		printf("after sort\n");
-		print_stack(stack_a);
-		printf("\n");
-		
-		if (is_sorted(stack_a))
-			printf("sort is done\n");
-		else
-			printf("error sort\n");
-			
+		// printf("after sort\n");
+		// print_stack(stack_a);
+		// printf("\n");
+
+		// if (is_sorted(stack_a))
+		// 	printf("sort is done\n");
+		// else
+		// 	printf("error sort\n");
+
 		free_stack(stack_a);
 		if (stack_b)
 			free_stack(stack_b);
@@ -88,27 +88,3 @@ int	main(int argc, char **argv)
 	return (0);
 }
 
-
-
-
-
-
-
-
-// static void insert_node(t_node **node, int val)
-// {
-// 	t_node *new_node;
-// 	t_node *curr;
-// 	new_node = create_node(val);
-// 	if (!new_node)
-// 		return ;
-// 	if (!*node)
-// 	{
-// 		*node = new_node;
-// 		return ;
-// 	}
-// 	curr = *node;
-// 	while (curr->next != NULL)
-// 		curr = curr->next;
-// 	curr->next = new_node;
-// }

@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:57:01 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/12 02:31:55 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/20 01:52:01 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ long long ft_atoll(char *c)
     int i;
 	long long sign;
 	long long res;
-	
+
 	sign = 1;
 	res = 0;
     i = 0;

@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 23:58:15 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/13 23:58:42 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/20 01:52:45 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_node *init_stack(int *num, int count)
 	t_node *node;
 	t_node *curr;
 	int i;
-	
+
 	node = NULL;
 	node = create_node(num[0]);
 	curr = node;
