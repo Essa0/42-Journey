@@ -20,12 +20,22 @@ in this step we create the executable file ./push_swap
 ./push_swap 43 55 334 34 34 53 3 23
 ```
 > **Note**: program will check the input for errors such as duplicate or invalid number and display Error message if the input is invalid, make sure your input contains just numbers
+```bash
 make fclean
-this command will make clean for all obj file
+```
+> **Note**: this command will make clean for all obj file
 
-## Recourses 
+## Resources  
 
-> **Note**: radix_sort algorithm 
+How radix_sort algorithm work:
+ - search for max number to know the number of digit to determine the number of digits.
+ - for the number with fewer digit will treated as if they have leading zeros
+ - the sort process start from the lowest significant digit to highest significant digit 
+ - each of sort step, the numbers will be distributed into buckets ranging (0 - 9) based on the current digit
+ - after sort by digit, will create new list by collect the number from the bucket in ascending order (0-9) 
+ - repeat these steps until the list becomes sorted
+
+ in the following recourses i provide **visualgo** that will help to understand how radix sort work
 
 1. push_swap subject pdf
 2. geeksforgeeks:
@@ -39,4 +49,8 @@ this command will make clean for all obj file
 5. stack overflow 
     helpful to solve most of problem that i faced
 
-## 
+in our project we will use this algorithm in different way, 
+the sorting divide into two parts
+- **simple sort**: used for small input sizes (3-5 number) we do this part without using radix sort algorithm just focus on hardcode logic to get the minimum number of operation. 
+- **big sort**: this part focused on large input size, we cant applied directly the classic radix sort because the project subject only allow to use two stack (A & B) and limited set of operation such as swap, push, rotate and reverse rotate, we make initial indexing step to overcome these obstacles, each element is assigned an index based on how many numbers are smaller than it. this step allows the algorithm to work with smaller values and fewer bits.
+the different in our radix sort after indexing, the algorithm will check each bit from the least significant to the most significant,
