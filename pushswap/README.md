@@ -23,7 +23,7 @@ in this step we create the executable file ./push_swap
 ```bash
 make fclean
 ```
-> **Note**: this command will make clean for all obj file
+> **Note**: this command will clean for all obj file and the executable 
 
 ## Resources  
 
@@ -54,3 +54,6 @@ the sorting divide into two parts
 - **simple sort**: used for small input sizes (3-5 number) we do this part without using radix sort algorithm just focus on hardcode logic to get the minimum number of operation. 
 - **big sort**: this part focused on large input size, we cant applied directly the classic radix sort because the project subject only allow to use two stack (A & B) and limited set of operation such as swap, push, rotate and reverse rotate, we make initial indexing step to overcome these obstacles, each element is assigned an index based on how many numbers are smaller than it. this step allows the algorithm to work with smaller values and fewer bits.
 the different in our radix sort after indexing, the algorithm will check each bit from the least significant to the most significant,
+
+## About using AI:
+AI tool such as (chatgpt, claude and copilot) to create general roadmap on how to start and what should to learn and to organize the program, also it was helpful with bug that i faced during build the program
