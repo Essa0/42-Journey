@@ -1,10 +1,10 @@
 *This project has been created as part of the 42 curriculum by iabiesat*
 
 ## Description:
-in this project we implement full program that sorts list of number using the minimum number of operation 
+in this project we implement full program that sorts list of number using the minimum number of operation
 
 ## Instructions:
-The goal is to learn more about linked-list and sort algorithms, 42 are provides checker program that help us to know how many operation the program will do to sort the numbers list.
+The goal is to learn more about linked-list and sort algorithms, 42 provides checker program that help us to know how many operation the program will do to sort the numbers list.
 
 To run the program you should to do the following steps:
 - Open terminal
@@ -49,7 +49,7 @@ How radix_sort algorithm work:
 5. stack overflow 
     helpful to solve most of problem that i faced
 
-in our project we will use this algorithm in different way, 
+in our project we will use radix sort in different way, 
 the sorting divide into two parts
 - **simple sort**: used for small input sizes (3-5 number) we do this part without using radix sort algorithm just focus on hardcode logic to get the minimum number of operation. 
 - **big sort**: this part focused on large input size, we cant applied directly the classic radix sort because the project subject only allow to use two stack (A & B) and limited set of operation such as swap, push, rotate and reverse rotate, we make initial indexing step to overcome these obstacles, each element is assigned an index based on how many numbers are smaller than it. this step allows the algorithm to work with smaller values and fewer bits.
