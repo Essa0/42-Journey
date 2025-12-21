@@ -6,7 +6,7 @@
 #    By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 23:28:37 by  iabiesat         #+#    #+#              #
-#    Updated: 2025/12/15 02:50:03 by  iabiesat        ###   ########.fr        #
+#    Updated: 2025/12/22 01:08:50 by  iabiesat        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 OBJS_DIR = objs/
 
 # push_swap source files
-SRC = split_and_store.c validateInput.c free_full_arr.c ft_atol.c free_partial_arr.c convert_to_integer.c check_for_duplicate.c free_stack.c init_stack.c is_sorted.c min_idx.c max_idx.c ft_strcmp.c s_operation.c p_operation.c r_operation.c rr_operation.c simple_sort.c
+SRC = split_and_store.c validateInput.c free_full_arr.c ft_atol.c free_partial_arr.c convert_to_integer.c check_for_duplicate.c free_stack.c init_stack.c is_sorted.c min_idx.c max_idx.c ft_strcmp.c s_operation.c p_operation.c r_operation.c rr_operation.c simple_sort.c idx_stack.c sort_algo.c stack_size.c
 
 # main source file
 MAIN_SRC = main.c

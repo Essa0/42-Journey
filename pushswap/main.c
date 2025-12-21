@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 17:48:48 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/19 23:38:31 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/22 02:04:36 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 		if (!validateInput(part))
 		{
 			free_full_arr(part);
-			write(1, "Error in split\n", 6);
+			write(1, "Error in validation\n", 6);
 			return (1);
 		}
 
@@ -62,22 +62,28 @@ int	main(int argc, char **argv)
 		}
 
 		stack_a = init_stack(numbers, count);
+		if (!stack_a)
+		{
+			free(numbers);
+			free_full_arr(part);
+		}
 		stack_b = NULL;
 
-		// printf("before sort\n");
-		// print_stack(stack_a);
-		// printf("\n");
+		if (is_sorted(stack_a))
+		{
+			free_stack(stack_a);
+			free(numbers);
+			free_full_arr(part);
+			return (0);
+		}
 
-		simple_sort(&stack_a, &stack_b);
-
-		// printf("after sort\n");
-		// print_stack(stack_a);
-		// printf("\n");
-
-		// if (is_sorted(stack_a))
-		// 	printf("sort is done\n");
-		// else
-		// 	printf("error sort\n");
+		idx_stack(&stack_a);
+		if (count == 2)
+			s_operation("sa", &stack_a, &stack_b);
+		else if (count > 2 && count <= 5)
+			simple_sort(&stack_a, &stack_b);
+		else if(count > 5)
+			sort_algo(&stack_a, &stack_b);
 
 		free_stack(stack_a);
 		if (stack_b)
