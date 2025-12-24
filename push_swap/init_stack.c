@@ -3,33 +3,33 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 23:58:15 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:52:45 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:19:39 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_node *create_node(int value)
+static	t_node	*create_node(int value)
 {
-	t_node *n;
+	t_node	*n;
 
 	n = malloc(sizeof(t_node));
 	if (!n)
-		return(NULL);
+		return (NULL);
 	n->val = value;
 	n->idx = 0;
 	n->next = NULL;
-	return n;
+	return (n);
 }
 
-t_node *init_stack(int *num, int count)
+t_node	*init_stack(int *num, int count)
 {
-	t_node *node;
-	t_node *curr;
-	int i;
+	t_node	*node;
+	t_node	*curr;
+	int		i;
 
 	node = NULL;
 	node = create_node(num[0]);
@@ -38,7 +38,7 @@ t_node *init_stack(int *num, int count)
 	while (i < count)
 	{
 		curr->next = create_node(num[i]);
-		if(!curr->next)
+		if (!curr->next)
 		{
 			free_stack(node);
 			return (NULL);

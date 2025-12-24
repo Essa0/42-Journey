@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   max_idx.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 00:04:36 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:51:18 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:54:35 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int max_idx(t_node *stack)
+int	max_idx(t_node *stack)
 {
-	int max_val;
-	int idx;
-	int m_idx;
-	t_node *cur;
+	int		max_val;
+	int		idx;
+	int		m_idx;
+	t_node	*cur;
 
 	if (!stack)
 		return (-1);
@@ -33,7 +33,7 @@ int max_idx(t_node *stack)
 			m_idx = idx;
 		}
 		cur = cur->next;
-		idx++;        
+		idx++;
 	}
 	return (m_idx);
 }

@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 16:21:22 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:54:52 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:34:42 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void sort_three(t_node **stack_a, t_node **stack_b)
+static void	sort_three(t_node **stack_a, t_node **stack_b)
 {
-	int pos_max;
+	int	pos_max;
 
 	pos_max = max_idx(*stack_a);
 	if (pos_max == 0)
@@ -26,8 +26,8 @@ static void sort_three(t_node **stack_a, t_node **stack_b)
 	else if (pos_max == 1)
 	{
 		rr_operation("rra", stack_a, stack_b);
-			if ((*stack_a)->val > (*stack_a)->next->val)
-				s_operation("sa", stack_a, stack_b);
+		if ((*stack_a)->val > (*stack_a)->next->val)
+			s_operation("sa", stack_a, stack_b);
 	}
 	else
 	{
@@ -35,10 +35,11 @@ static void sort_three(t_node **stack_a, t_node **stack_b)
 			s_operation("sa", stack_a, stack_b);
 	}
 }
-static void move_top(t_node **stack_a, t_node **stack_b, int pos)
+
+static void	move_top(t_node **stack_a, t_node **stack_b, int pos)
 {
-	int size;
-	t_node *cur;
+	int		size;
+	t_node	*cur;
 
 	size = 0;
 	cur = *stack_a;
@@ -49,7 +50,7 @@ static void move_top(t_node **stack_a, t_node **stack_b, int pos)
 	}
 	if (pos <= size / 2)
 	{
-		while (pos-- >  0)
+		while (pos-- > 0)
 			r_operation("ra", stack_a, stack_b);
 	}
 	else
@@ -64,7 +65,7 @@ static void move_top(t_node **stack_a, t_node **stack_b, int pos)
 
 static void	sort_four(t_node **stack_a, t_node **stack_b)
 {
-	int pos_min;
+	int	pos_min;
 
 	pos_min = min_idx(*stack_a);
 	if (pos_min == 0)
@@ -89,27 +90,25 @@ static void	sort_four(t_node **stack_a, t_node **stack_b)
 	p_operation("pa", stack_a, stack_b);
 }
 
-static void sort_five(t_node **stack_a, t_node **stack_b)
+static void	sort_five(t_node **stack_a, t_node **stack_b)
 {
-	int pos_min;
+	int	pos_min;
 
 	pos_min = min_idx(*stack_a);
 	move_top(stack_a, stack_b, pos_min);
 	p_operation("pb", stack_a, stack_b);
-	
 	pos_min = min_idx(*stack_a);
 	move_top(stack_a, stack_b, pos_min);
 	p_operation("pb", stack_a, stack_b);
-	
 	sort_three(stack_a, stack_b);
 	p_operation("pa", stack_a, stack_b);
 	p_operation("pa", stack_a, stack_b);
 }
 
-void simple_sort(t_node **stack_a, t_node **stack_b)
+void	simple_sort(t_node **stack_a, t_node **stack_b)
 {
-	int size;
-	t_node *cur;
+	int		size;
+	t_node	*cur;
 
 	size = 0;
 	cur = *stack_a;
@@ -119,7 +118,7 @@ void simple_sort(t_node **stack_a, t_node **stack_b)
 	{
 		size++;
 		cur = cur->next;
-	}	
+	}
 	if (size == 2)
 		s_operation("sa", stack_a, stack_b);
 	else if (size == 3)

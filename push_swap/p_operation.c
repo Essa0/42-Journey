@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   p_operation.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 00:02:41 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:53:46 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:52:50 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void push_node(t_node **dest, t_node **src)
+static void	push_node(t_node **dest, t_node **src)
 {
-	t_node *new_dest;
+	t_node	*new_dest;
 
 	if (!*src)
 		return ;
@@ -24,19 +24,19 @@ static void push_node(t_node **dest, t_node **src)
 	*dest = new_dest;
 }
 
-static void pa(t_node **stack_a, t_node **stack_b)
+static void	pa(t_node **stack_a, t_node **stack_b)
 {
 	push_node(stack_a, stack_b);
 	write(1, "pa\n", 3);
 }
 
-static void pb(t_node **stack_a, t_node **stack_b)
+static void	pb(t_node **stack_a, t_node **stack_b)
 {
 	push_node(stack_b, stack_a);
 	write(1, "pb\n", 3);
 }
 
-void p_operation(char *operation, t_node **a, t_node **b)
+void	p_operation(char *operation, t_node **a, t_node **b)
 {
 	if (ft_strcmp("pa", operation) == 0)
 		pa(a, b);

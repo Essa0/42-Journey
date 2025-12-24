@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_size.c                                       :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/22 01:10:11 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/22 01:59:14 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/12/14 22:10:55 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/12/24 15:55:43 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int stack_size(t_node *stack)
+int	is_sorted(t_node *stack)
 {
-	int i;
+	t_node	*cur;
 
 	if (!stack)
-		return(0);
-
-	i = 0;
-	while (stack)
+		return (1);
+	cur = stack;
+	while (cur->next != NULL)
 	{
-		i++;
-		stack = stack->next;
+		if (cur->val > cur->next->val)
+		{
+			return (0);
+		}
+		cur = cur->next;
 	}
-	return (i);
+	return (1);
 }

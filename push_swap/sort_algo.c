@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   sort_algo.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:10:15 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/22 02:09:48 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:31:16 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int bits_count(int x)
+static int	bits_count(int x)
 {
-	int i;
-	
+	int	i;
+
 	if (x == 0)
 		return (0);
 	i = 0;
@@ -27,7 +27,7 @@ int bits_count(int x)
 	return (i);
 }
 
-void sort_algo(t_node **stack_a, t_node **stack_b)
+void	sort_algo(t_node **stack_a, t_node **stack_b)
 {
 	int	i;
 	int	bite;

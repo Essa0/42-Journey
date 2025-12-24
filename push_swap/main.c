@@ -3,37 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 17:48:48 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/24 03:06:12 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 16:11:01 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// static void print_stack(t_node *node)
-// {
-// 	while (node)
-// 	{
-// 		printf("%d ", node->val);
-// 		node = node->next;
-// 	}
-// 	printf("\n");
-// }
-
-static void	clean_fun(char **part, int *numbers, t_node *stack_a, t_node *stack_b)
+static void	clean_fun(char **part, int *numbers, t_node *a, t_node *b)
 {
 	if (part)
 		free_full_arr(part);
 	if (numbers)
 		free(numbers);
-	if (stack_a)
-		free_stack(stack_a);
-	if (stack_b)
-		free_stack(stack_b);
+	if (a)
+		free_stack(a);
+	if (b)
+		free_stack(b);
 }
-static void sort_stack(t_node **stack_a, t_node **stack_b, int count)
+
+static void	sort_stack(t_node **stack_a, t_node **stack_b, int count)
 {
 	idx_stack(stack_a);
 	if (count == 2)
@@ -43,11 +34,12 @@ static void sort_stack(t_node **stack_a, t_node **stack_b, int count)
 	else if (count > 5)
 		sort_algo(stack_a, stack_b);
 }
-static void init_and_sort(char **part, int *number, int count)
+
+static void	init_and_sort(char **part, int *number, int count)
 {
-	t_node *stack_a;
-	t_node *stack_b;
-	
+	t_node	*stack_a;
+	t_node	*stack_b;
+
 	stack_a = init_stack(number, count);
 	if (!stack_a)
 	{
@@ -65,9 +57,9 @@ static void init_and_sort(char **part, int *number, int count)
 	clean_fun(part, number, stack_a, stack_b);
 }
 
-static int valid_fun(char **part, int **number, int *count)
+static int	valid_fun(char **part, int **number, int *count)
 {
-	if (!validateInput(part))
+	if (!validate_input(part))
 	{
 		free_full_arr(part);
 		write(2, "Error\n", 6);
@@ -87,18 +79,16 @@ static int valid_fun(char **part, int **number, int *count)
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	
-	return (1);	
+	return (1);
 }
-
 
 int	main(int argc, char **argv)
 {
-	int count;
-	int *numbers;
-	char **part;
-	
-	if(argc > 1)
+	int		count;
+	int		*numbers;
+	char	**part;
+
+	if (argc > 1)
 	{
 		part = split_and_store(argc, argv);
 		if (!part || !part[0])
@@ -106,7 +96,7 @@ int	main(int argc, char **argv)
 			if (part)
 				free_full_arr(part);
 			write(2, "Error\n", 6);
-			return(1);
+			return (1);
 		}
 		count = 0;
 		numbers = NULL;
@@ -116,4 +106,3 @@ int	main(int argc, char **argv)
 	}
 	return (0);
 }
-

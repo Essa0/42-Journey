@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   idx_stack.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/20 00:43:49 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:52:36 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:56:18 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void idx_stack(t_node **stack)
+void	idx_stack(t_node **stack)
 {
-	t_node *cur;
-	t_node *temp;
-	int new_idx;
+	t_node	*cur;
+	t_node	*temp;
+	int		new_idx;
 
 	cur = *stack;
 	temp = *stack;

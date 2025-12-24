@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   r_operation.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 02:19:46 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:54:04 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:39:40 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void rotate_node(t_node **stack_a)
+static void	rotate_node(t_node **stack_a)
 {
-	t_node *curr;
-	t_node *head;
+	t_node	*curr;
+	t_node	*head;
 
 	if (!*stack_a || !(*stack_a)->next)
 		return ;
@@ -28,26 +28,26 @@ static void rotate_node(t_node **stack_a)
 	head->next = NULL;
 }
 
-static void ra(t_node **stack_a)
+static void	ra(t_node **stack_a)
 {
 	rotate_node(stack_a);
 	write(1, "ra\n", 3);
 }
 
-static void rb(t_node **stack_b)
+static void	rb(t_node **stack_b)
 {
 	rotate_node(stack_b);
 	write(1, "rb\n", 3);
 }
 
-static void rr(t_node **stack_a, t_node **stack_b)
+static void	rr(t_node **stack_a, t_node **stack_b)
 {
 	rotate_node(stack_a);
 	rotate_node(stack_b);
 	write(1, "rr\n", 3);
 }
 
-void r_operation(char *operation, t_node **a, t_node **b)
+void	r_operation(char *operation, t_node **a, t_node **b)
 {
 	if (ft_strcmp("ra", operation) == 0)
 		ra(a);

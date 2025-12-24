@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_for_duplicate.c                              :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 02:23:25 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:51:32 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/12/13 23:57:12 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/12/24 15:56:36 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int check_for_duplicate(int *numbers, int size)
+void	free_stack(t_node *stack)
 {
-	int i;
-	int j;
+	t_node	*temp;
 
-	i = 0;
-	while (i < size - 1)
+	while (stack)
 	{
-		j = i + 1;
-		while (j < size)
-		{
-			if (numbers[i] == numbers[j])
-				return (0);
-			j++;
-		}
-		i++;
+		temp = stack->next;
+		free(stack);
+		stack = temp;
 	}
-	return (1);
 }

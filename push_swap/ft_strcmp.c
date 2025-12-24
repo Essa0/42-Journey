@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/13 23:57:12 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/14 00:00:54 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/12/15 02:09:42 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/12/24 15:13:33 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_stack(t_node *stack)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	t_node *temp;
+	int	i;
 
-	while (stack)
-	{
-		temp = stack->next;
-		free(stack);
-		stack = temp;
-	}
+	i = 0;
+	while (s1[i] && s2[i] && (s1[i] == s2[i]))
+		i++;
+	return (s1[i] - s2[i]);
 }

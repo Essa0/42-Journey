@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/10 18:57:01 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:52:01 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:09:34 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ static int	ft_skip_white_space(int c)
 	return (0);
 }
 
-long long ft_atoll(char *c)
+long long	ft_atoll(char *c)
 {
-    int i;
-	long long sign;
-	long long res;
+	int			i;
+	long long	sign;
+	long long	res;
 
 	sign = 1;
 	res = 0;
-    i = 0;
-    while (ft_skip_white_space(c[i]))
+	i = 0;
+	while (ft_skip_white_space(c[i]))
 		i++;
 	if (c[i] == '-' || c[i] == '+')
 	{
-		if (c[i]=='-')
+		if (c[i] == '-')
 			sign *= -1;
 		i++;
 	}
@@ -41,5 +41,5 @@ long long ft_atoll(char *c)
 		res = res * 10 + (c[i] - '0');
 		i++;
 	}
-	return res * sign; 	    
+	return (res * sign);
 }

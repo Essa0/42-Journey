@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   free_partial_arr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 02:09:42 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:52:25 by  iabiesat        ###   ########.fr       */
+/*   Created: 2025/12/10 16:30:54 by  iabiesat         #+#    #+#             */
+/*   Updated: 2025/12/24 15:56:40 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int ft_strcmp(const char *s1, const char *s2)
+char	**free_partial_arr(char **result, int i)
 {
-	int i;
+	int	j;
 
-	i = 0;
-	while (s1[i] && s2[i] &&(s1[i] == s2[i]))
-		i++;
-	return (s1[i] - s2[i]);
+	j = 0;
+	while (j < i)
+	{
+		free(result[j]);
+		j++;
+	}
+	free(result);
+	return (NULL);
 }

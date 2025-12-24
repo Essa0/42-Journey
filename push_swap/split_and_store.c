@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   split_and_store.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/08 00:12:54 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/20 01:55:23 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/24 15:23:39 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int count_word(int argc, char **argv)
+static int	count_word(int argc, char **argv)
 {
-	int 	i;
-	int 	n;
-	int 	count;
+	int		i;
+	int		n;
+	int		count;
 	char	**result;
 
 	i = 1;
@@ -33,14 +33,15 @@ static int count_word(int argc, char **argv)
 		while (result[n])
 		{
 			count++;
-			n++;	
+			n++;
 		}
 		free_full_arr(result);
-		i++;		
+		i++;
 	}
 	return (count);
 }
-static int arg_fill(char **result, char *argv, int k)
+
+static int	arg_fill(char **result, char *argv, int k)
 {
 	int		i;
 	char	**part;
@@ -48,14 +49,14 @@ static int arg_fill(char **result, char *argv, int k)
 	i = 0;
 	part = ft_split(argv, ' ');
 	if (!part)
-		return (-1);	
+		return (-1);
 	while (part[i])
 	{
 		result[k] = ft_strdup(part[i]);
 		if (!result[k])
 		{
 			free_full_arr(part);
-			return(-1);
+			return (-1);
 		}
 		i++;
 		k++;
@@ -64,7 +65,7 @@ static int arg_fill(char **result, char *argv, int k)
 	return (k);
 }
 
-char **split_and_store(int argc, char **argv)
+char	**split_and_store(int argc, char **argv)
 {
 	int		i;
 	int		k;
@@ -75,7 +76,7 @@ char **split_and_store(int argc, char **argv)
 	if (i < 0)
 		return (NULL);
 	result = malloc((i + 1) * sizeof(char *));
-	if(!result)
+	if (!result)
 		return (NULL);
 	i = 1;
 	k = 0;
@@ -84,7 +85,7 @@ char **split_and_store(int argc, char **argv)
 		temp_k = k;
 		k = arg_fill(result, argv[i], k);
 		if (k < 0)
-			return(free_partial_arr(result, temp_k));
+			return (free_partial_arr(result, temp_k));
 		i++;
 	}
 	result[k] = NULL;
