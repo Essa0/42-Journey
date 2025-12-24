@@ -3,77 +3,69 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+         #
+#    By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/07 23:28:37 by  iabiesat         #+#    #+#              #
-#    Updated: 2025/12/24 16:08:18 by iabiesat         ###   ########.fr        #
+#    Updated: 2025/12/25 01:28:53 by  iabiesat        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# project names
-NAME = push_swap
-LIBRARY = push_swap.a
 
-# libft paths
-LIBFT_DIR = libft
-LIBFT = $(LIBFT_DIR)/libft.a
-
-# where object files will be store
-OBJS_DIR = objs/
-
-# push_swap source files
-SRC = split_and_store.c validate_input.c free_full_arr.c ft_atol.c free_partial_arr.c convert_to_integer.c check_for_duplicate.c free_stack.c init_stack.c is_sorted.c min_idx.c max_idx.c ft_strcmp.c s_operation.c p_operation.c r_operation.c rr_operation.c simple_sort.c idx_stack.c sort_algo.c stack_size.c
-
-# main source file
-MAIN_SRC = main.c
-
-# compiler
 CC = cc
 
-# compiler flags
 CFLAGS = -Wall -Wextra -Werror
 
-# include paths
-INCLUDES = -I. -I$(LIBFT_DIR)
+NAME = push_swap
 
-# command to remove files and directories
-RM = rm -rf
+LIBFT = ./libft/libft.a
 
-# all source files will be compiled into object files in OBJS_DIR
-OBJ = $(SRC:%.c=$(OBJS_DIR)%.o)
+OBJS_DIR = objs/
 
-# default target
+SRCS = check_for_duplicate.c\
+main.c\
+convert_to_integer.c\
+free_full_arr.c\
+free_partial_arr.c\
+free_stack.c\
+ft_atol.c\
+ft_strcmp.c\
+idx_stack.c\
+init_stack.c\
+is_sorted.c\
+max_idx.c\
+min_idx.c\
+p_operation.c\
+r_operation.c\
+rr_operation.c\
+s_operation.c\
+simple_sort.c\
+sort_algo.c\
+split_and_store.c\
+stack_size.c\
+validate_input.c
+
+OBJS = $(SRCS:%.c=${OBJS_DIR}%.o)
+
 all: $(NAME)
 
-# build the executable
-$(NAME): $(LIBRARY) $(MAIN_SRC)
-	@$(CC) $(CFLAGS) $(INCLUDES) $(MAIN_SRC) $(LIBRARY) $(LIBFT) -o $(NAME)
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
 
-# build the final static library
-$(LIBRARY): $(LIBFT) $(OBJ)
-	@cp $(LIBFT) $(LIBRARY)
-	@ar rcs $(LIBRARY) $(OBJ)
+$(LIBFT):
+	make -C ./libft
 
-# compile object files
 $(OBJS_DIR)%.o: %.c
 	@mkdir -p $(OBJS_DIR)
-	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) -c $< -o $@
 
-# build libft if not already built
-$(LIBFT):
-	@make -C $(LIBFT_DIR)
-
-# clean object files
 clean:
-	@$(RM) $(OBJS_DIR)
-	@make -C $(LIBFT_DIR) clean
+	rm -rf $(OBJS_DIR)
+	make -C ./libft clean
 
-# clean all generated files
 fclean: clean
-	@$(RM) $(NAME) $(LIBRARY)
-	@make -C $(LIBFT_DIR) fclean
+	rm -f $(NAME)
+	make -C ./libft fclean
 
-# rebuild the project
 re: fclean all
 
 .PHONY: all clean fclean re

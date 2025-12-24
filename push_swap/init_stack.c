@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 23:58:15 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/24 15:19:39 by iabiesat         ###   ########.fr       */
+/*   Updated: 2025/12/24 17:17:58 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ t_node	*init_stack(int *num, int count)
 
 	node = NULL;
 	node = create_node(num[0]);
+	if (!node)
+		return (NULL);
 	curr = node;
 	i = 1;
 	while (i < count)
