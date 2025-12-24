@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 16:21:22 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/24 15:34:42 by iabiesat         ###   ########.fr       */
+/*   Updated: 2025/12/25 01:46:17 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,8 +112,6 @@ void	simple_sort(t_node **stack_a, t_node **stack_b)
 
 	size = 0;
 	cur = *stack_a;
-	if (is_sorted(*stack_a))
-		return ;
 	while (cur != NULL)
 	{
 		size++;
