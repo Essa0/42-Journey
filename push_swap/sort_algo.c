@@ -6,7 +6,7 @@
 /*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/22 01:10:15 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/24 15:31:16 by iabiesat         ###   ########.fr       */
+/*   Updated: 2025/12/25 13:57:08 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,19 +30,19 @@ static int	bits_count(int x)
 void	sort_algo(t_node **stack_a, t_node **stack_b)
 {
 	int	i;
-	int	bite;
+	int	bit;
 	int	size;	
 	int	bit_max;
 
 	bit_max = bits_count(stack_size(*stack_a));
-	bite = 0;
-	while (bite < bit_max)
+	bit = 0;
+	while (bit < bit_max)
 	{
 		size = stack_size(*stack_a);
 		i = 0;
 		while (i < size)
 		{
-			if (((*stack_a)->idx >> bite) & 1)
+			if (((*stack_a)->idx >> bit) & 1)
 				r_operation("ra", stack_a, stack_b);
 			else
 				p_operation("pb", stack_a, stack_b);
@@ -50,6 +50,6 @@ void	sort_algo(t_node **stack_a, t_node **stack_b)
 		}
 		while (*stack_b)
 			p_operation("pa", stack_a, stack_b);
-		bite++;
+		bit++;
 	}
 }
