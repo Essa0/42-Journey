@@ -6,7 +6,7 @@
 /*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/14 16:21:22 by  iabiesat         #+#    #+#             */
-/*   Updated: 2025/12/25 01:46:17 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2025/12/25 03:24:59 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,8 @@ static void	sort_three(t_node **stack_a, t_node **stack_b)
 static void	move_top(t_node **stack_a, t_node **stack_b, int pos)
 {
 	int		size;
-	t_node	*cur;
 
-	size = 0;
-	cur = *stack_a;
-	while (cur)
-	{
-		size++;
-		cur = cur->next;
-	}
+	size = stack_size(*stack_a);
 	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
