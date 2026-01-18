@@ -1,10 +1,11 @@
 *This project has been created as part of the 42 curriculum by iabiesat*
 
 ## Description:
-in this project we want to explore the beauty of mathematical sets like **NANDELBROT** & **JULIA**
+in this project we explore the beauty of mathematical sets such as **NANDELBROT** & **JULIA**
 
 ## Instructions:
-the goal in this project to go through beauty mathmitics sets and learn about complex number and how to use mlx library
+the goal is to understand how to work with mlx library and learn more about complex number, fractal generation.
+you will learn how to manipulate images pixel by pixel implement keyboard and mouse event
 
 ### about mlx
 the mlx library is a small graphic library, it allows you 
