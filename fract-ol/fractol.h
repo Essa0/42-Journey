@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 04:22:05 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/01/18 13:12:00 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/01/18 13:46:25 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 #include <string.h>
 #include <unistd.h>
 
-#define WIDTH		2000
-#define HEIGHT		1000
+#define WIDTH		1600
+#define HEIGHT		700
 #define MAX_ITER	300
 #define ESC_KEY		65307
 #define KEY_UP		65362

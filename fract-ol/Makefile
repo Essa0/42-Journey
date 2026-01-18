@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+         #
+#    By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/18 04:34:58 by  iabiesat         #+#    #+#              #
-#    Updated: 2026/01/18 13:06:54 by  iabiesat        ###   ########.fr        #
+#    Updated: 2026/01/18 14:02:14 by iabiesat         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,6 +15,12 @@ NAME = fractol
 CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
+
+MLX_PATH = minilibx-linux
+MLX_LIB = ${MLX_PATH}/libmlx.a
+MLX_FLAGS = -L${MLX_PATH} -lmlx -lXext -lX11 -lm
+
+INCLUDE = -I. -I${MLX_PATH}
 
 src = main.c \
 	render_function/math_julia.c \
@@ -29,18 +35,24 @@ src = main.c \
 
 OBJ = $(src:.c=.o)
 
-all: $(NAME)
+all: $(MLX_LIB) $(NAME)
 
-MLX_FLAGS = -Iminilibx-linux -Lminilibx-linux -lmlx -lXext -lX11 -lm
+$(MLX_LIB):
+	make -sC $(MLX_PATH)
 
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(MLX_FLAGS)
+$(NAME): $(OBJ) $(MLX_LIB)
+	$(CC) $(CFLAGS) $(OBJ) $(MLX_FLAGS) -o ${NAME}
 
 %.o: %.c
-	$(CC) $(CFLAGS) -I. -c $< -o $@
+	$(CC) $(CFLAGS) ${INCLUDE} -c $< -o $@
+	
 clean:
 	rm -f $(OBJ)
+	@make -sC ${MLX_PATH} clean
+
 fclean: clean
 	rm -f $(NAME)
+
 re: fclean all
+
 .PHONY: all clean fclean re

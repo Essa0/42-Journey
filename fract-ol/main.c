@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 04:04:37 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/01/18 13:13:06 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/01/18 13:45:36 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	main(int ac, char **av)
 		|| (ac == 4 && check_input(av[1], "julia") == 0))
 	{
 		img.mlx_ptr = mlx_init();
-		img.win_ptr = mlx_new_window(img.mlx_ptr, 2000, 1000, "fract-ol");
+		img.win_ptr = mlx_new_window(img.mlx_ptr, WIDTH, HEIGHT, "fract-ol");
 		if (ac == 2)
 			img.fractal_type = 0;
 		else

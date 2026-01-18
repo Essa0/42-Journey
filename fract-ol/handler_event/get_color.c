@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_color.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 03:57:29 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/01/18 04:25:18 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/01/18 14:59:07 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	get_color(int iter, t_img *img)
 		return (r << 16 | g << 8 | b);
 	}
 	else if (img->color_schema == 1)
-		return ((iter * 205500) * (iter < MAX_ITER));
+		return ((iter * 2522) * (iter < MAX_ITER));
 	else
 	{
 		g = (iter * 15) % 256;

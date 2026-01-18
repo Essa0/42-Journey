@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_draw.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 03:57:54 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/01/18 04:28:24 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/01/18 13:44:43 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,12 @@ static void	handle_pixel(t_img *img, int x, int y)
 {
 	double	re;
 	double	im;
+	double	scale;
 	int		iter;
 
-	re = (x - WIDTH / 2.0) / (0.5 * WIDTH * img->zoom) + img->re;
-	im = (y - HEIGHT / 2.0) / (0.5 * HEIGHT * img->zoom) + img->im;
+	scale = 0.5 * HEIGHT * img->zoom;
+	re = (x - WIDTH / 2.0) / scale + img->re;
+	im = (y - HEIGHT / 2.0) / scale + img->im;
 	if (img->fractal_type == 0)
 		iter = math_mandelbrot(re, im);
 	else
