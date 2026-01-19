@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 04:04:37 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/01/18 17:15:16 by iabiesat         ###   ########.fr       */
+/*   Updated: 2026/01/19 02:05:36 by  iabiesat        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		write(1, "Error", 5);
+		write(1, "Error\n", 6);
 		return (1);
 	}
 	return (0);

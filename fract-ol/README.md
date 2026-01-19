@@ -17,8 +17,8 @@ the mlx library is a small graphic library, it allows you
 - update the win with the rendering image
 
 ### prerequisites
-Make \
-clang or another C compiler
+- Make
+- clang or another C compiler
 
 ### usage
 clone the repo and move inside the file
