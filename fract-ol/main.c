@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 04:04:37 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/01/19 02:05:36 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/01/19 12:03:41 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,12 @@ int	main(int ac, char **av)
 	}
 	else
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error: Invalid input\n", 25);
+		write(1, "\nUsage:\n", 8);
+		write(1, "\t./fractol mandelbrot\n", 22);
+		write(1, "\t./fractol julia <re> <im>\n", 27);
+		write(1, "\nExample:\n", 11);
+		write(1, "\t./fractol julia -0.4 0.6\n", 26);
 		return (1);
 	}
 	return (0);
