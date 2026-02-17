@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   client.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 23:39:32 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/01/20 03:49:55 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/01/20 15:13:15 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include "ft_printf/ft_printf.h"
-
 
 void	action(int sig)
 {
@@ -30,7 +29,7 @@ void	send_str(int pid, char c)
 	{
 		if ((c >> bit) & 1)
 		{
-			if(kill(pid, SIGUSR1) == -1)
+			if (kill(pid, SIGUSR1) == -1)
 			{
 				ft_printf("invalid pid\n");
 				exit(1);
@@ -38,7 +37,7 @@ void	send_str(int pid, char c)
 		}
 		else
 		{
-			if(kill(pid, SIGUSR2) == -1)
+			if (kill(pid, SIGUSR2) == -1)
 			{
 				ft_printf("invalid pid\n");
 				exit(1);
@@ -47,15 +46,14 @@ void	send_str(int pid, char c)
 		bit++;
 		pause();
 	}
-	
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int	i;
 	int	pid;
 
-	if(ac != 3)
+	if (ac != 3)
 	{
 		ft_printf("invalid number of arg");
 		return (0);
