@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+         #
+#    By: issa <issa@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/26 17:56:44 by  iabiesat         #+#    #+#              #
-#    Updated: 2026/02/26 17:56:59 by  iabiesat        ###   ########.fr        #
+#    Updated: 2026/05/09 19:50:35 by issa             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,21 +17,28 @@ CFLAGS = -Wall -Wextra -Werror -pthread
 
 SRCS = main.c init.c routine.c waiter.c utils.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
+
+OBJS_DIR = obj
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	@echo "create OBJS file...."
+	@echo "linking done"
 
-%.o: %.c philo.h
-	$(CC) $(CFLAGS) -c $< -o $@
+$(OBJS_DIR)/%.o: %.c philo.h
+	@mkdir -p $(dir $@)
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@rm -f $(OBJS)
+	@rm -rf $(OBJS_DIR)
+	@echo "remove all OBJS"
 
 fclean: clean
 	@rm -f $(NAME)
+	@echo "remove all related file"
 
 re: fclean all
 

@@ -3,31 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 03:00:00 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/02/26 17:57:45 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/05/10 13:07:00 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+/*
+	get_time on standard gettimeofday the function give us the time in
+	sec and ms so every time 
 
+	ft_usleep i face separate issues with standared usleep for example when
+	the philo sleep for 5ms it cause late with wake him up so mybe will the
+	philo wake up after 7ms because of the os be busy in another thing so 
+	we customize one to be sure that philo sleep and wakeup on time :)
+*/
 long long	get_time(void)
 {
 	struct timeval	tv;
 
-	if (gettimeofday(&tv, NULL) != 0)
-		return (-1);
-	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+	gettimeofday(&tv, NULL);
+	return (((long long)tv.tv_sec * 1000) + (tv.tv_usec / 1000));
 }
 
-void	ft_usleep(long long ms)
+void	ft_usleep(t_philo *philo, long long ms)
 {
 	long long	start;
 
 	start = get_time();
 	while ((get_time() - start) < ms)
+	{
+		if (died_alert(philo, 0) == 1)
+			break ;
 		usleep(100);
+	}
 }
 
 int	died_alert(t_philo *philo, int check)
@@ -68,9 +79,7 @@ int	free_fork(t_philo_info *info, int n)
 		pthread_mutex_destroy(&info->fork_mutex[i]);
 		i++;
 	}
-	pthread_mutex_destroy(&info->print_mutex);
-	pthread_mutex_destroy(&info->dead_mutex);
-	pthread_mutex_destroy(&info->meal_mutex);
+	cleanup_all(info);
 	if (info->fork_mutex)
 		free(info->fork_mutex);
 	return (0);

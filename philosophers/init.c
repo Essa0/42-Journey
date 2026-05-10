@@ -3,48 +3,53 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 03:00:00 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/02/26 17:57:19 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/05/10 00:51:03 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static int	init_mutexes(t_philo_info *info)
+static int	init_mutex(t_philo_info *info)
 {
 	if (pthread_mutex_init(&info->print_mutex, NULL) != 0)
-	{
-		free(info->fork_mutex);
 		return (1);
-	}
 	if (pthread_mutex_init(&info->dead_mutex, NULL) != 0)
 	{
 		pthread_mutex_destroy(&info->print_mutex);
-		free(info->fork_mutex);
 		return (1);
 	}
 	if (pthread_mutex_init(&info->meal_mutex, NULL) != 0)
 	{
 		pthread_mutex_destroy(&info->print_mutex);
 		pthread_mutex_destroy(&info->dead_mutex);
-		free(info->fork_mutex);
 		return (1);
 	}
 	return (0);
+}
+
+void	cleanup_all(t_philo_info *info)
+{
+	pthread_mutex_destroy(&info->print_mutex);
+	pthread_mutex_destroy(&info->dead_mutex);
+	pthread_mutex_destroy(&info->meal_mutex);
 }
 
 int	init_table(t_philo_info *info)
 {
 	int	i;
 
+	if (init_mutex(info) != 0)
+		return (1);
 	info->fork_mutex = malloc(sizeof(pthread_mutex_t) * info->num_philo);
 	if (!info->fork_mutex)
+	{
+		cleanup_all(info);
 		return (1);
+	}
 	info->is_dead = 0;
-	if (init_mutexes(info) != 0)
-		return (1);
 	i = 0;
 	while (i < info->num_philo)
 	{

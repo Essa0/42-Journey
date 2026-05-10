@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:53:56 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/02/26 17:59:17 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/05/10 13:04:07 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	philo_eat(t_philo *philo)
 	philo->last_time_eat = get_time();
 	philo->num_meals_eaten++;
 	pthread_mutex_unlock(&philo->info->meal_mutex);
-	ft_usleep(philo->info->time_to_eat);
+	ft_usleep(philo, philo->info->time_to_eat);
 	pthread_mutex_unlock(philo->l_fork);
 	pthread_mutex_unlock(philo->r_fork);
 }
@@ -47,7 +47,8 @@ static void	philo_think(t_philo *philo)
 	if (philo->info->num_philo % 2 == 1)
 	{
 		if (philo->info->time_to_eat > philo->info->time_to_sleep)
-			ft_usleep(philo->info->time_to_eat - philo->info->time_to_sleep);
+			ft_usleep(philo, philo->info->time_to_eat
+				- philo->info->time_to_sleep);
 	}
 }
 
@@ -55,7 +56,7 @@ static void	one_philo(t_philo *philo)
 {
 	pthread_mutex_lock(philo->l_fork);
 	print_fun(philo, "has taken a fork");
-	ft_usleep(philo->info->time_to_die);
+	ft_usleep(philo, philo->info->time_to_die);
 	pthread_mutex_unlock(philo->l_fork);
 }
 
@@ -80,7 +81,7 @@ void	*routine_philo(void *arg)
 		if (died_alert(philo, 0) == 1)
 			break ;
 		print_fun(philo, "is sleeping");
-		ft_usleep(philo->info->time_to_sleep);
+		ft_usleep(philo, philo->info->time_to_sleep);
 		if (died_alert(philo, 0) == 1)
 			break ;
 		philo_think(philo);

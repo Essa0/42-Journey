@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:56:51 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/02/26 18:00:23 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/05/10 13:01:58 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,15 @@ typedef struct s_philo
 
 /* utils.c */
 long long	get_time(void);
-void		ft_usleep(long long ms);
 void		print_fun(t_philo *philo, char *str);
+void		ft_usleep(t_philo *philo, long long ms);
 int			died_alert(t_philo *philo, int check);
 int			free_fork(t_philo_info *info, int n);
 
 /* init.c */
 int			init_table(t_philo_info *info);
 int			init_philo(t_philo **philo, t_philo_info *info);
+void		cleanup_all(t_philo_info *info);
 
 /* routine.c */
 void		*routine_philo(void *arg);
