@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   waiter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By:  iabiesat < iabiesat@student.42amman.co    +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:58:07 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/02/26 17:58:10 by  iabiesat        ###   ########.fr       */
+/*   Updated: 2026/05/13 19:44:06 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ static int	check_death(t_philo *philo, int i)
 	pthread_mutex_lock(&philo[0].info->meal_mutex);
 	last_meal = philo[i].last_time_eat;
 	pthread_mutex_unlock(&philo[0].info->meal_mutex);
-	if ((get_time() - last_meal) >= philo[0].info->time_to_die)
+	if ((get_time() - last_meal) > philo[0].info->time_to_die)
 		return (print_death(philo, i));
 	return (0);
 }
