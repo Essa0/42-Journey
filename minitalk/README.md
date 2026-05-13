@@ -3,7 +3,7 @@
 ## Description:
 **Minitalk** is a small communication program that enables data exchange between a **server** and a **client** using **POSIX signals**.
 
-he communication protocol is based on sending messages using only two UNIX signals:
+the communication protocol is based on sending messages using only two UNIX signals:
 - `SIGUSR1`
 - `SIGUSR2`
 

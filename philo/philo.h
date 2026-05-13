@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:56:51 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/05/10 13:01:58 by issa             ###   ########.fr       */
+/*   Updated: 2026/05/11 15:36:35 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 # define ERR_MSG "Error: invalid arguments\n"
 
 /*
-	** structs:
-		- philo_info: shared info for all 
-		- philo: individual philosopher data
+	structs:
+		-> t_philo_info: shared info for all 
+		-> t_philo: individual philosopher data
 */
 
 typedef struct s_philo_info

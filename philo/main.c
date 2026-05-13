@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:57:04 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/05/10 13:24:11 by issa             ###   ########.fr       */
+/*   Updated: 2026/05/11 15:43:34 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,7 @@ int	validate_and_parse(int ac, char **av, t_philo_info *info)
 		return (1);
 	return (0);
 }
-/* 
-	in the create_philo we set last_time_eat = start_time to be sure
-	that no one appears starved at beginning.
-*/
+
 
 int	create_philo(t_philo_info *info, t_philo *philo)
 {

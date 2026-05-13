@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 17:53:56 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/05/10 13:04:07 by issa             ###   ########.fr       */
+/*   Updated: 2026/05/11 17:27:51 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,16 @@ static void	philo_eat(t_philo *philo)
 
 static void	philo_think(t_philo *philo)
 {
+	long long	think_time;
+
 	print_fun(philo, "is thinking");
 	if (philo->info->num_philo % 2 == 1)
 	{
-		if (philo->info->time_to_eat > philo->info->time_to_sleep)
-			ft_usleep(philo, philo->info->time_to_eat
-				- philo->info->time_to_sleep);
+		think_time = philo->info->time_to_eat - philo->info->time_to_sleep;
+		if (think_time <= 0)
+			think_time = philo->info->time_to_eat / 2;
+		if (think_time > 0)
+			ft_usleep(philo, think_time);
 	}
 }
 
