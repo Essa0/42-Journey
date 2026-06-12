@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   waiter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 17:58:07 by  iabiesat         #+#    #+#             */
-/*   Updated: 2026/05/13 19:44:06 by iabiesat         ###   ########.fr       */
+/*   Updated: 2026/05/14 10:05:13 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	waiter(t_philo *philo)
 		}
 		if (check_all_ate(philo))
 			return (1);
-		usleep(1000);
+		usleep(500);
 	}
 	return (0);
 }
