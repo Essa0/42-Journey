@@ -1,5 +1,5 @@
 #include <iostream>
-#include "PhoneBook.h"
+#include "PhoneBook.hpp"
 
 std::string ct_tolower(std::string str)
 {
@@ -14,7 +14,6 @@ std::string ct_tolower(std::string str)
 
 int main()
 {
-
 	PhoneBook test;
 	std::string prompt;
 
