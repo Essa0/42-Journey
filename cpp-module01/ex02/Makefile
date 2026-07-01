@@ -1,12 +1,10 @@
-NAME = PhoneBook
+NAME = Brain
 
 CXX = c++
 
-SRCS = src/PhoneBook.cpp src/Contact.cpp main.cpp
+SRCS = main.cpp
 
-INCLUDE = include
-
-CFLAGS = -Wextra -Werror -Wall -std=c++98 -I$(INCLUDE)
+CFLAGS = -Wextra -Werror -Wall -std=c++98
 
 OBJS_DIR = obj
 

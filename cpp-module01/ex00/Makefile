@@ -1,8 +1,8 @@
-NAME = PhoneBook
+NAME = BraiiiiiiinnnzzzZ
 
 CXX = c++
 
-SRCS = src/PhoneBook.cpp src/Contact.cpp main.cpp
+SRCS = src/newZombie.cpp src/Zombie.cpp src/randomChump.cpp main.cpp
 
 INCLUDE = include
 

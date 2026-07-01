@@ -1,8 +1,8 @@
-NAME = PhoneBook
+NAME = sed
 
 CXX = c++
 
-SRCS = src/PhoneBook.cpp src/Contact.cpp main.cpp
+SRCS = src/sed.cpp main.cpp
 
 INCLUDE = include
 

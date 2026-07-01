@@ -1,8 +1,8 @@
-NAME = PhoneBook
+NAME = moarBrainz
 
 CXX = c++
 
-SRCS = src/PhoneBook.cpp src/Contact.cpp main.cpp
+SRCS = src/zombieHorde.cpp src/Zombie.cpp main.cpp
 
 INCLUDE = include
 

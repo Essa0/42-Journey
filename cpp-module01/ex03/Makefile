@@ -1,8 +1,8 @@
-NAME = PhoneBook
+NAME = weapon
 
-CXX = c++
+C++ = c++
 
-SRCS = src/PhoneBook.cpp src/Contact.cpp main.cpp
+SRCS = src/HumanA.cpp src/HumanB.cpp src/Weapon.cpp main.cpp
 
 INCLUDE = include
 
@@ -15,13 +15,13 @@ OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(C++) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "create OBJS file...."
 	@echo "linking done"
 
 $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@$(CXX) $(CFLAGS) -c $< -o $@
+	@$(C++) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS_DIR)

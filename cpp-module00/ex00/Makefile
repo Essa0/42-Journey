@@ -1,6 +1,6 @@
 NAME = megaphone
 
-C++ = c++
+CXX = c++
 
 CFLAGS = -Wextra -Werror -Wall -std=c++98
 
@@ -8,18 +8,18 @@ SRCS = src/megaphone.cpp
 
 OBJS_DIR = obj
 
-OBJS = $(SRCS:%.c=$(OBJS_DIR)/%.o)
+OBJS = $(SRCS:%.cpp=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(C++) $(CFLAGS) $(OBJS) -o $(NAME)
+	@$(CXX) $(CFLAGS) $(OBJS) -o $(NAME)
 	@echo "create OBJS file...."
 	@echo "linking done"
 
 $(OBJS_DIR)/%.o: %.cpp
 	@mkdir -p $(dir $@)
-	@$(C++) $(CFLAGS) -c $< -o $@
+	@$(CXX) $(CFLAGS) -c $< -o $@
 
 clean:
 	@rm -rf $(OBJS_DIR)
