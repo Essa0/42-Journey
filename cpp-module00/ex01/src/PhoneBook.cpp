@@ -6,7 +6,7 @@
 /*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/01 13:36:32 by iabiesat          #+#    #+#             */
-/*   Updated: 2026/07/01 13:36:33 by iabiesat         ###   ########.fr       */
+/*   Updated: 2026/07/01 13:56:09 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void PhoneBook::search(void) const
 	display();
 	if (this->count <= 0)
 	{
-		std::cout << std::setfill('*') << std::setw(20) << "there's no contact yet" << std::setfill('') << std::endl;
+		std::cout << std::setfill('*') << std::setw(20) << "there's no contact yet" << std::setfill(' ') << std::endl;
 		return;
 	}
 	std::cout << "enter index that u want to view" << std::endl;
