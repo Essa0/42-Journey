@@ -5,22 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 16:52:39 by iabiesat          #+#    #+#             */
-/*   Updated: 2026/07/14 16:52:40 by iabiesat         ###   ########.fr       */
+/*   Created: 2026/06/28 20:17:25 by issa              #+#    #+#             */
+/*   Updated: 2026/07/14 16:47:06 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Zombie.hpp"
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+int main()
+{
+    Zombie *tt = newZombie("HeapZombie");
+    tt->announce();
+    delete tt;
+    randomChump("StackZombie");
+    return 0;
 }
