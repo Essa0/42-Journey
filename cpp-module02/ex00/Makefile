@@ -1,8 +1,8 @@
-NAME = BraiiiiiiinnnzzzZ
+NAME = Fixed
 
 CXX = c++
 
-SRCS = src/newZombie.cpp src/Zombie.cpp src/randomChump.cpp main.cpp
+SRCS = src/Fixed.cpp main.cpp
 
 INCLUDE = include
 
