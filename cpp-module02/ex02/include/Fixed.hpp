@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 18:58:09 by issa              #+#    #+#             */
-/*   Updated: 2026/08/17 01:44:36 by issa             ###   ########.fr       */
+/*   Updated: 2026/08/17 13:41:28 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 	Fixed(const float val);
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
-	float toFloat(void)	const;
+	float toFloat(void) const;
 	int toInt(void) const;
 	Fixed &operator=(const Fixed &obj);
 	// arithmetic operator
@@ -45,11 +45,12 @@ public:
 	bool operator==(const Fixed &obj) const;
 	bool operator!=(const Fixed &obj) const;
 	// increment & decrement
-	Fixed &operator++(); //pre
-	Fixed operator++(int); //post
+	Fixed &operator++();   // pre
+	Fixed operator++(int); // post
 	Fixed &operator--();
 	Fixed operator--(int);
 	// min & max
+	// const min & max return reference and used read-only and deny edit the obj through it
 	static Fixed &min(Fixed &pointOne, Fixed &pointTwo);
 	static const Fixed &min(const Fixed &pointOne, const Fixed &pointTwo);
 	static Fixed &max(Fixed &pointOne, Fixed &pointTwo);
@@ -58,7 +59,5 @@ public:
 };
 
 std::ostream &operator<<(std::ostream &out, const Fixed &obj);
-
-
 
 #endif

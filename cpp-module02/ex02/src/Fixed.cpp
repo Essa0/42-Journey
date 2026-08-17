@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: iabiesat <iabiesat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/28 20:08:13 by issa              #+#    #+#             */
-/*   Updated: 2026/08/17 01:45:12 by issa             ###   ########.fr       */
+/*   Updated: 2026/08/17 13:33:29 by iabiesat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ Fixed::Fixed(const Fixed &obj)
 Fixed &Fixed::operator=(const Fixed &obj)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this != &obj) // to avoid self assignment
+	if (this != &obj)
 		fixedPoint = obj.fixedPoint;
 	return *this;
 }
