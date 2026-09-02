@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 21:53:34 by issa              #+#    #+#             */
-/*   Updated: 2026/08/26 04:05:53 by issa             ###   ########.fr       */
+/*   Updated: 2026/08/30 06:59:27 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Dog::Dog(const Dog &obj) : Animal(obj)
 Dog &Dog::operator=(const Dog &obj)
 {
 	if (this != &obj)
-		*this = obj;
+		this->type = obj.type;
 	return *this;
 }
 

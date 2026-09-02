@@ -6,46 +6,41 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 21:53:39 by issa              #+#    #+#             */
-/*   Updated: 2026/08/26 04:06:03 by issa             ###   ########.fr       */
+/*   Updated: 2026/09/02 21:04:05 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../include/Animal.hpp"
 
 Animal::Animal()
 {
-    std::cout << "Animal Default Constructor called" << std::endl;
-}
-
-Animal::Animal(const std::string &value) : type(value)
-{
-    std::cout << "Animal String Constructor called" << std::endl;
+	std::cout << "Animal Default Constructor called" << std::endl;
 }
 
 Animal::Animal(const Animal &obj)
 {
-    std::cout << "Copy Constructor called" << std::endl;
-    *this = obj;
+	*this = obj;
+	std::cout << "Animal Copy Constructor called" << std::endl;
 }
 
 Animal &Animal::operator=(const Animal &obj)
 {
-    if (this != &obj)
-        *this = obj;
-    return *this;
-}
-
-std::string Animal::getType() const
-{
-    return this->type;
+	if (this != &obj)
+		this->type = obj.type;
+	return *this;
 }
 
 void Animal::makeSound() const
 {
-    std::cout << "this Animal doesn't make any sound" << std::endl;
+	std::cout << "the animal doesn't have sound" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+	return this->type;
 }
 
 Animal::~Animal()
 {
-    std::cout << "Animal Destructor called" << std::endl;
+	std::cout << "Animal Destructor called" << std::endl;
 }

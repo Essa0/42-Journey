@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/26 07:43:03 by issa              #+#    #+#             */
-/*   Updated: 2026/08/26 13:59:07 by issa             ###   ########.fr       */
+/*   Updated: 2026/08/30 23:43:07 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@
 class Brain
 {
 private:
-	std::string ideas[100];
-
+	std::string idea[100];
 public:
 	Brain();
 	Brain(const Brain &obj);

@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/23 23:50:48 by issa              #+#    #+#             */
-/*   Updated: 2026/08/26 07:52:23 by issa             ###   ########.fr       */
+/*   Updated: 2026/09/01 00:23:11 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@
 class Dog : public Animal
 {
 private:
-    Brain *brain;
+	Brain *brain;
 public:
-    Dog();
-    Dog(const Dog &obj);
+	Dog();
+	Dog(const Dog &obj);
 	Dog &operator=(const Dog &obj);
 	void makeSound() const;
-    std::string getType() const;
-    ~Dog();
+	std::string getType() const;
+	~Dog();
 };
 
 #endif

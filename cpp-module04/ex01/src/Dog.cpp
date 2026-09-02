@@ -6,20 +6,22 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 21:53:34 by issa              #+#    #+#             */
-/*   Updated: 2026/08/26 16:33:48 by issa             ###   ########.fr       */
+/*   Updated: 2026/09/01 00:24:56 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Dog.hpp"
 
-Dog::Dog() : Animal("Dog"), brain(new Brain)
+Dog::Dog() : Animal(), brain(new Brain())
 {
-	std::cout << "Dog Default Constructor called" << std::endl;
+	this->type = "Dog";
+	std::cout << "Dog Default Constructor" << std::endl;
 }
 
 Dog::Dog(const Dog &obj) : Animal(obj), brain(new Brain(*obj.brain))
 {
-	std::cout << "Dog Copy Constructor called" << std::endl;
+	this->type = "Dog";
+	std::cout << "Dog Copy Constructor Called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &obj)
@@ -34,16 +36,16 @@ Dog &Dog::operator=(const Dog &obj)
 
 void Dog::makeSound() const
 {
-	std::cout << "Dog Sound" << std::endl;
+	std::cout << "Dog Sound <_>" << std::endl;
 }
 
 std::string Dog::getType() const
 {
-	return type;
+	return this->type;
 }
 
 Dog::~Dog()
 {
-	delete brain;
+	delete(this->brain);
 	std::cout << "Dog Destructor Called" << std::endl;
 }

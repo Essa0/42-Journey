@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/23 23:50:48 by issa              #+#    #+#             */
-/*   Updated: 2026/08/25 22:13:56 by issa             ###   ########.fr       */
+/*   Updated: 2026/08/31 23:23:34 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Dog : public Animal
 {
 private:
-    /* data */
 public:
     Dog(/* args */);
     Dog(const Dog &obj);

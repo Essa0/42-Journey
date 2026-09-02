@@ -2,7 +2,7 @@ NAME = Animal
 
 CXX = c++
 
-SRCS = src/Dog.cpp src/Cat.cpp src/Animal.cpp main.cpp
+SRCS = src/Dog.cpp src/Cat.cpp src/Brain.cpp src/Animal.cpp main.cpp
 
 INCLUDE = include
 

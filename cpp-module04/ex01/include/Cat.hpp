@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/23 23:49:06 by issa              #+#    #+#             */
-/*   Updated: 2026/08/26 07:54:58 by issa             ###   ########.fr       */
+/*   Updated: 2026/09/01 00:23:04 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 
 class Cat : public Animal
 {
-protected:
+private:
 	Brain *brain;
 public:
 	Cat();
