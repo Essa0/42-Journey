@@ -6,7 +6,7 @@
 /*   By: issa <issa@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/17 23:23:03 by issa              #+#    #+#             */
-/*   Updated: 2026/10/13 10:45:15 by issa             ###   ########.fr       */
+/*   Updated: 2026/10/13 10:49:04 by issa             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ ClapTrap::ClapTrap(const ClapTrap &obj) : Name(obj.Name),
 										  attackDamage(obj.attackDamage)
 
 {
-	std::cout << "ClapTrap " << Name << " successfully created" << std::endl;
+	std::cout << "ClapTrap " << Name << " copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
